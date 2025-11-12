@@ -1,0 +1,15 @@
+# Sistema / IDE
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Arquivos temporários
+*.tmp
+*.bak
+*.swp
+
+# Configurações locais
+.env
+config.php
