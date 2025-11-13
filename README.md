@@ -1,82 +1,110 @@
 # 🏋️‍♂️ ClientFitness — PHP + MySQL + Power BI
 
-**Sistema completo de cadastro e acompanhamento de treinos**, feito em PHP com MySQL e integração pronta para análise de dados no Power BI.
+Sistema de cadastro e acompanhamento de treinos para clientes de personal trainer, desenvolvido em **PHP + MySQL**, com banco pronto para ser consumido em ferramentas de BI (como **Power BI**).
 
 ---
 
 ## 🚀 Tecnologias usadas
-- 🐘 **PHP 8+ (XAMPP)**
-- 💾 **MySQL** (dump incluso em `database.sql`)
-- 💻 **HTML + CSS**
-- 📊 **Power BI** (para dashboards analíticos)
+
+- 🐘 PHP (XAMPP)
+- 💾 MySQL (dump em `database.sql`)
+- 🌐 HTML + CSS (vanilla)
+- 📊 Power BI (integração opcional)
 
 ---
 
 ## 📂 Estrutura do projeto
 
+```text
 clientfitness/
 ├── app/
-│ └── db.php # conexão MySQL
+│   └── db.php              # conexão MySQL
 ├── partials/
-│ └── nav.php # menu superior
-├── database.sql # dump do banco (clients + workouts)
-├── index.php # dashboard + filtros
-├── clients.php # lista clientes
-├── client_create.php # adicionar cliente
-├── client_edit.php # editar cliente
-├── client_delete.php # excluir cliente
-├── workout_create.php # adicionar treino
-├── workout_edit.php # editar treino
-├── workout_delete.php # excluir treino
-└── styles.css # estilo base
-
-
----
-
-## 🧩 Como rodar localmente
-1️⃣ Instale e inicie o **XAMPP** (Apache + MySQL).  
-2️⃣ Copie este projeto para:
-
-
-3️⃣ No **MySQL Workbench**:
-- Vá em **Server → Data Import**
-- Escolha **Import from Self-Contained File**
-- Selecione `database.sql`
-- Clique em **Start Import**
-
-4️⃣ Abra no navegador:
-http://localhost/clientfitness/
-
+│   └── nav.php             # menu superior
+├── database.sql            # dump do banco (schema + dados de exemplo)
+├── index.php               # dashboard + filtros
+├── clients.php             # lista de clientes
+├── client_create.php       # criação de cliente
+├── client_edit.php         # edição de cliente
+├── client_delete.php       # remoção de cliente
+├── workout_create.php      # criação de treino
+├── workout_edit.php        # edição de treino
+├── workout_delete.php      # remoção de treino
+└── styles.css              # estilos básicos
+```
 
 ---
 
-## 📊 Power BI (opcional)
-Você pode conectar o banco `portfolio_db` no Power BI:
+## 🧩 Como rodar localmente (XAMPP + MySQL)
 
-1. **Obter Dados → Banco de Dados MySQL**
-2. Servidor: `localhost`
-3. Banco: `portfolio_db`
-4. Importar tabelas `clients` e `workouts`
-5. Criar relações e visuais:
-   - 🧍 Treinos por cliente  
-   - ⏱️ Minutos totais  
-   - 💪 Modalidades mais praticadas  
-   - ❤️ Média de RPE (esforço percebido)
+1. **Iniciar o XAMPP**
+   - Abra o XAMPP Control Panel.
+   - Inicie os módulos **Apache** e **MySQL**.
+
+2. **Colocar o projeto na pasta do servidor**
+   - Copie a pasta inteira do projeto para:
+     ```text
+     C:\xampp\htdocs\clientfitness\
+     ```
+
+3. **Importar o banco de dados com o MySQL Workbench**
+   - Abra o **MySQL Workbench**.
+   - Vá em **Server → Data Import**.
+   - Selecione **Import from Self-Contained File** e escolha o arquivo:
+     ```text
+     database.sql
+     ```
+   - Marque o schema de destino (por exemplo `portfolio_db`) ou deixe para ser criado pelo próprio script.
+   - Clique em **Start Import**.
+
+4. **Acessar a aplicação**
+   - No navegador, acesse:
+     ```text
+     http://localhost/clientfitness/
+     ```
 
 ---
 
-## 🌐 Deploy local
-Projeto roda 100% localmente com XAMPP.
-Ideal para demonstrar CRUD + MySQL + análise de dados (Power BI).
+## 📊 Integração com Power BI (opcional)
+
+1. Abra o **Power BI Desktop**.
+2. Clique em **Obter Dados → Banco de Dados MySQL**.
+3. Use as configurações (padrão XAMPP):
+   - Servidor: `localhost`
+   - Banco de dados: `portfolio_db`
+   - Usuário: `root`
+   - Senha: *(vazia, se você não configurou nenhuma)*.
+4. Selecione as tabelas:
+   - `clients`
+   - `workouts`
+5. Crie o relacionamento:
+   - `workouts.client_id` → `clients.id`
+6. Exemplos de visuais:
+   - Treinos por cliente.
+   - Minutos totais de treino.
+   - Modalidade mais praticada.
+   - RPE médio dos treinos.
 
 ---
 
-## 🧑‍💻 Autor
-**Augusto Cezar de Macedo Doso**  
-💼 [LinkedIn](https://www.linkedin.com/in/augusto-cezar-de-macedo-doso-38b83537b)  
-🐙 [GitHub](https://github.com/augustodoso)  
+## 🌱 Ideias de evolução
+
+- Autenticação (login de administrador).
+- Campo de objetivo do cliente (ganho de massa, perda de gordura, performance etc.).
+- Exportação de treinos para CSV/Excel.
+- Dashboard pronto em Power BI incluído na pasta `bi/` com o arquivo `.pbix`.
+
+---
+
+## 👤 Autor
+
+**Augusto Cezar de Macedo Doso**
+
+- 💼 [LinkedIn](https://www.linkedin.com/in/augusto-cezar-de-macedo-doso-38b83537b)
+- 🐙 [GitHub](https://github.com/augustodoso)
 
 ---
 
 ## 🪪 Licença
+
 Licenciado sob a [MIT License](LICENSE).
